@@ -18,7 +18,7 @@ Implement your transform plugins as the example below.
         // Returns true if the transform is able to
         // transform the filename.
         canTransform(filename) {
-        	return Promise.resolved(
+        	return Promise.resolve(
         		// Ex. returns `true` if filename ends with `.myremoteext`.
         		/\.myremoteext$/.test(filename)
         	);
@@ -31,13 +31,13 @@ Implement your transform plugins as the example below.
         // (Optional - default implementation returns true)
         allowAccess(filename) {
         	// Ex. returns `false` if filename ends with `.mylocalext`.
-        	return Promise.resolved(!/\.mylocalext$/.test(filename));
+        	return Promise.resolve(!/\.mylocalext$/.test(filename));
         }
 
         // Returns a remote filename mapped to a local filename.
         map(filename) {
         	// Ex. replaces `.myremoteext` with `.mylocalext`.
-        	return Promise.resolved(filename.replace(/\.myremoteext$/, '.mylocalext'));
+        	return Promise.resolve(filename.replace(/\.myremoteext$/, '.mylocalext'));
         }
 
         // Returns compiled data.

@@ -3,11 +3,11 @@
 class Transform {
 
 	canTranform(filename) {
-		return Promise.resolved(false);
+		return Promise.resolve(false);
 	}
 
 	allowAccess(filename) {
-		return Promise.resolved(true);
+		return Promise.resolve(true);
 	}
 
 	map(filename) {
@@ -15,11 +15,11 @@ class Transform {
 	}
 
 	compile(filename, data, options) {
-		return Promise.resolved(data);
+		return Promise.resolve(data);
 	}
 
 	render(filename, data, options) {
-		return Promise.resolved(data);
+		return Promise.resolve(data);
 	}
 
 }
