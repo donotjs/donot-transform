@@ -3,15 +3,15 @@
 class Transform {
 
 	canTranform(filename) {
-		return Promise.resolve(false);
+		return false;
 	}
 
 	allowAccess(filename) {
-		return Promise.resolve(true);
+		return true;
 	}
 
 	map(filename) {
-		throw Error('mapToLocal not implemented.');
+		throw Error('map not implemented.');
 	}
 
 	compile(filename, data, options) {
