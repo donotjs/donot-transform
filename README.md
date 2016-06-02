@@ -47,11 +47,15 @@ Implement your transform plugins as the example below.
         	return new Promise((resolved, rejected) => {
         		// Compile your local file and return in the following format.
         		resolved({
-        			data: myData, // The compiled data
-        			map: myMap // An optional source map
+							// The compiled data
+        			data: myData,
+							// An array of files used in compile. Used by the cache to determine when to invalid the cache.
+							files: [ myLocalFile1, myLocalFile2],
+							// An optional source map
+        			map: myMap
         		});
         		// Call `rejected` with an error if compile fails.
-        	});gi
+        	});
         }
 
         // Returns rendered compiled data.
