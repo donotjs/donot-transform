@@ -1,5 +1,5 @@
 {
-  "name": "donot-transform",
+  "name": "@donotjs/donot-transform",
   "version": "1.0.0",
   "description": "Base abstract class for transform plugins - used for developing transform plugins for donot.",
   "main": "index.js",
