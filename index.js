@@ -14,12 +14,16 @@ class Transform {
 		throw Error('map not implemented.');
 	}
 
-	compile(filename, data, options) {
-		return Promise.resolve(data);
+	compile(srcFilename, destFilename, options) {
+		throw Error('compile not implemented');
 	}
 
-	render(filename, data, options) {
-		return Promise.resolve(data);
+	needsRendering() {
+		return false;
+	}
+
+	render(data, options) {
+		return Error('render not implemented');
 	}
 
 }

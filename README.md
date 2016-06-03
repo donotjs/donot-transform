@@ -38,28 +38,27 @@ Implement your transform plugins as the example below.
         	return filename.replace(/\.myremoteext$/, '.mylocalext');
         }
 
-        // Returns compiled data.
-        // (Optional - default implementation returns `data`).
-        // (Notice: Results from `compile` is cached, so this is only called once per file).
-        compile(filename, data, options) {
+        // Compiles data from one file to another.
+        // Notice: Results from `compile` is cached, so this is only called when cache is invalid.
+        compile(srcFilename, destFilename, options) {
         	return new Promise((resolved, rejected) => {
-        		// Compile your local file and return in the following format.
+        		// Compile the srcFilename to destFilename and resolve.
         		resolved({
-							// The compiled data
-        			data: myData,
-							// An array of files used in compile. Used by the cache to determine when to invalid the cache.
-							files: [ myLocalFile1, myLocalFile2],
-							// An optional source map
+					// An optional source map
         			map: myMap
         		});
         		// Call `rejected` with an error if compile fails.
         	});
         }
+        
+        // Return `true` if transform needs rendering.
+        needsRendering() {
+        	return `true`;
+        }
 
         // Returns rendered compiled data.
-        // (Optional - default implementation returns `compiledData`).
-        // (Notice: Results from `render` is NOT cached).
-        render(filename, compiledData, options) {
+        // Notice: Results from `render` is NOT cached and is called on every request.
+        render(compiledData, options) {
         	return new Promise((resolved, rejected) => {
         		// Render any compiled data and return in the following format.
         		resolved({
