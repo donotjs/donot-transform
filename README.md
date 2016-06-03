@@ -44,6 +44,8 @@ Implement your transform plugins as the example below.
         	return new Promise((resolved, rejected) => {
         		// Compile the srcFilename to destFilename and resolve.
         		resolved({
+        			// An array of files used in compile. Used to determine cache invalidation.
+        			files: ['/some/path/myFile1.mylocalext', '/some/path/myFile2.mylocalext'],
 					// An optional source map
         			map: myMap
         		});
