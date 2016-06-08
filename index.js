@@ -14,16 +14,8 @@ class Transform {
 		throw Error('map not implemented.');
 	}
 
-	compile(srcFilename, destFilename, options) {
+	compile(filename, data, map, options) {
 		throw Error('compile not implemented');
-	}
-
-	needsRendering() {
-		return false;
-	}
-
-	render(data, options) {
-		return Error('render not implemented');
 	}
 
 }

@@ -18,8 +18,8 @@ Implement your transform plugins as the example below.
         // Returns true if the transform is able to
         // transform the filename.
         canTransform(filename) {
-					// Ex. returns `true` if filename ends with `.myremoteext`.
-					return /\.myremoteext$/.test(filename);
+        	// Ex. returns `true` if filename ends with `.myremoteext`.
+        	return /\.myremoteext$/.test(filename);
         }
 
         // Returns true if the transform allows access to a specific file.
@@ -40,19 +40,19 @@ Implement your transform plugins as the example below.
 
         // Compiles data from one file to another.
         // Notice: Results from `compile` is cached, so this is only called when cache is invalid.
-        compile(srcFilename, destFilename, options) {
+        compile(filename, data, map, options) {
         	return new Promise((resolved, rejected) => {
-        		// Compile the srcFilename to destFilename and resolve.
+        		// Compile the data.
         		resolved({
         			// An array of files used in compile. Used to determine cache invalidation.
         			files: ['/some/path/myFile1.mylocalext', '/some/path/myFile2.mylocalext'],
-					// An optional source map
+        			// An optional source map
         			map: myMap
         		});
         		// Call `rejected` with an error if compile fails.
         	});
         }
-        
+
         // Return `true` if transform needs rendering.
         needsRendering() {
         	return `true`;
@@ -73,7 +73,7 @@ Implement your transform plugins as the example below.
 
     }
 
-    module.exports = exports = MyTranform;
+    module.exports = exports = MyTransform;
 
 # License
 
